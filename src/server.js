@@ -1,11 +1,13 @@
 import koa from 'koa'
 import koaRouter from 'koa-router'
 import koaBody from 'koa-bodyparser'
+import cors from 'kcors'
 import translate from 'google-translate-api'
 
 const app = new koa()
 const router = koaRouter()
 
+app.use(cors())
 app.use(koaBody())
 
 router.get('/api/translate', async (ctx, next) => {

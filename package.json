@@ -23,6 +23,7 @@
     "babel-plugin-transform-runtime": "^6.15.0",
     "babel-preset-latest": "^6.16.0",
     "google-translate-api": "^2.2.2",
+    "kcors": "^2.2.0",
     "knex": "^0.12.6",
     "koa": "^2.0.0",
     "koa-bodyparser": "^3.2.0",
