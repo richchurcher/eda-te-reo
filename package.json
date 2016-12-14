@@ -2,9 +2,11 @@
   "name": "eda-te-reo",
   "version": "0.1.0",
   "description": "Simple Te Reo translation API for students",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node --inspect index"
+    "build": "babel src --presets=latest --out-dir build",
+    "dev": "nodemon --exec babel-node --inspect src/index",
+    "start": "node build/index"
   },
   "keywords": [
     "maori",
@@ -24,12 +26,27 @@
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
+    "babel-plugin-transform-runtime": "^6.15.0",
     "babel-preset-latest": "^6.16.0",
     "nodemon": "^1.11.0"
   },
+  "engines": {
+    "node": ">7"
+  },
   "babel": {
+    "passPerPreset": true,
     "presets": [
-      "latest"
+      {
+        "plugins": [
+          "transform-runtime"
+        ]
+      },
+      {
+        "passPerPreset": false,
+        "presets": [
+          "latest"
+        ]
+      }
     ]
   }
 }
