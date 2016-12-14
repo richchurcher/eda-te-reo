@@ -1,14 +1,19 @@
 import koa from 'koa'
 import koaRouter from 'koa-router'
 import koaBody from 'koa-bodyparser'
+import translate from 'google-translate-api'
 
 const app = new koa()
-const router = new koaRouter()
+const router = koaRouter()
 
 app.use(koaBody())
 
-router.get('/', (ctx, next) => {
-  ctx.body = 'Yup.'
+router.get('/api/translate', async (ctx, next) => {
+  const translation = await translate(ctx.query.word, {
+    from: 'en',
+    to: 'mi'
+  })
+  ctx.body = translation.text
 })
 
 app
