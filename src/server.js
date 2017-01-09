@@ -17,6 +17,10 @@ router.get('/api/proverbs', (ctx, next) => {
   ctx.body = proverbs[randomIncludeMin()]
 })
 
+router.get('/api/whakatauki', (ctx, next) => {
+  ctx.body = proverbs[randomIncludeMin()]
+})
+
 router.get('/api/translate', async (ctx, next) => {
   if (!ctx.query.word) {
     ctx.body = 'Error: you need to specify a word to translate.'
