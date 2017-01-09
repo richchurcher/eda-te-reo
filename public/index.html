@@ -1,5 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head><title>Yup</title></head>
-  <body>Yup</body>
+  <head>
+    <title>EDA Te Reo</title>
+  </head>
+  <body>
+    <h1>EDA Te Reo</h1>
+
+    <p>You've found a training API used by <a href="http://devacademy.co.nz">Enspiral Dev Academy</a> students to practise JavaScript.</p>
+
+    <hr>
+
+    <h2>Endpoints</h2>
+
+    <h3>translate</h3>
+    <p><em>https://eda-te-reo.herokuapp.com/api/translate</em></p>
+    <p>Translates a given word or phrase from Maori into English using the Google Translate API.</p>
+    <p>Sample usage: send a request to <code>https://eda-te-reo.herokuapp.com/api/translate?word=seafood</code>.</p>
+    <p>Sample response: <code>kaimoana</code>.</p>
+
+    <h3>proverbs</h3>
+    <p><em>https://eda-te-reo.herokuapp.com/api/proverbs</em>, or <em>https://eda-te-reo.herokuapp.com/api/whakatauki</em></p>
+    <p>A <code>GET</code> request to this endpoint returns a JSON response containing source text in Maori and a translation.</p>
+    <p><pre><code>
+{
+  "source": "Te wahie ka waia mo takurua, te kai ka mahia mo tau.",
+  "translation": "Firewood is sought for winter, food is laboured after for the year.\n\nMeaning: Be usefully employed."
+}
+    </code></pre>
+    <p>The translations and accompanying comments were formatted to JSON from "Transactions and Proceedings of the Royal Society of New Zealand 1868-1961", particularly a work written in 1879 and hosted here: <a href="http://rsnz.natlib.govt.nz/volume/rsnz_12/rsnz_12_00_001250.html">http://rsnz.natlib.govt.nz/volume/rsnz_12/rsnz_12_00_001250.html</a>. It seems to be relatively respectful in its tone, but should be considered a product of its time.</p>
+  </body>
 </html>
