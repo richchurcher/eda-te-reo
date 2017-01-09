@@ -1,14 +1,19 @@
 import koa from 'koa'
 import koaRouter from 'koa-router'
-import koaBody from 'koa-bodyparser'
 import cors from 'kcors'
 import translate from 'google-translate-api'
+import proverbs from './proverbs'
 
 const app = new koa()
 const router = koaRouter()
 
 app.use(cors())
-app.use(koaBody())
+
+const randomIncludeMin = () => Math.floor(Math.random() * proverbs.length)
+
+router.get('/api/proverbs', (ctx, next) => {
+  ctx.body = proverbs[randomIncludeMin()]
+})
 
 router.get('/api/translate', async (ctx, next) => {
   const translation = await translate(ctx.query.word, {
